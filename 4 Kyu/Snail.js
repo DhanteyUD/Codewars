@@ -18,7 +18,15 @@
 
 // NOTE 2: The 0x0 (empty matrix) is represented as en empty array inside an array [[]].
 
-snail = function (array) {};
+snail = function (array) {
+  const matrix = [];
+  while (array.length) {
+    matrix.push(...array.shift());
+    array.map((row) => matrix.push(row.pop()));
+    array.reverse().map((row) => row.reverse());
+  }
+  return matrix;
+};
 
 console.log(
   snail([

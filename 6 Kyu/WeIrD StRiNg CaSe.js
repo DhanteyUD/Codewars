@@ -12,7 +12,19 @@
 // toWeirdCase( "String" );//=> returns "StRiNg"
 // toWeirdCase( "Weird string case" );//=> returns "WeIrD StRiNg CaSe"
 
-function toWeirdCase(string) {}
+function toWeirdCase(string) {
+  return string
+    .split(' ')
+    .map((word) => {
+      return word
+        .split('')
+        .map((char, index) => {
+          return index % 2 === 0 ? char.toUpperCase() : char.toLowerCase();
+        })
+        .join('');
+    })
+    .join(' ');
+}
 
 console.log(toWeirdCase('This')); // => "ThIs"
 console.log(toWeirdCase('is')); // => "Is"

@@ -18,7 +18,7 @@
 // is_prime(2)  /* true  */
 // is_prime(-1) /* false */
 
-//* Using while loop...
+//* Using for loop...
 // function isPrime(num) {
 // if (num < 2) return false;
 
@@ -28,7 +28,7 @@
 // return true;
 // }
 
-//* Using for loop...
+//* Using while loop...
 // function isPrime(num) {
 //   if (num < 2) return false;
 //   let i = 2;
@@ -39,7 +39,23 @@
 //   return true;
 // }
 
-function isPrime(num) {}
+//* Improved Time Complexity...
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+  if (num === 2) {
+    return true;
+  }
+  const maximumDivisor = Math.sqrt(num) + 1;
+
+  for (let i = 2; i < maximumDivisor; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
 
 console.log(isPrime(1)); // false
 console.log(isPrime(2)); // true

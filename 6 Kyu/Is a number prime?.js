@@ -41,15 +41,9 @@
 
 //* Improved Time Complexity...
 function isPrime(num) {
-  if (num < 2) {
-    return false;
-  }
-  if (num === 2) {
-    return true;
-  }
-  const maximumDivisor = Math.sqrt(num) + 1;
-
-  for (let i = 2; i < maximumDivisor; i++) {
+  if (num < 2) return false;
+  const limit = Math.sqrt(num);
+  for (let i = 2; i <= limit; ++i) {
     if (num % i === 0) {
       return false;
     }

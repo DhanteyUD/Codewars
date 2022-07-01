@@ -7,6 +7,9 @@
 // Note: The function accepts an integer and returns an integer
 
 function squareDigits(num){
-  return 0;
+  const str = num.toString()
+  const result = str.split('').map((a) => a * a).join('')
+  return +result
 }
 
+console.log(squareDigits(9119)); // 811181

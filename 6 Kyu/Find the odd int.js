@@ -10,10 +10,13 @@
 // [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 
 function findOdd(A) {
-  //happy coding!
-  return 0;
+  let odd = 0;
+  A.forEach(num => {
+    odd ^= num;
+  });
+  return odd;
 }
 
 console.log(findOdd([1,1,2])); // 2
-console.log(findOdd([0,1,0,1,0])); // 0
-console.log(findOdd([1,2,2,3,3,3,4,3,3,3,2,2,1])); // 4
+//console.log(findOdd([0,1,0,1,0])); // 0
+//console.log(findOdd([1,2,2,3,3,3,4,3,3,3,2,2,1])); // 4

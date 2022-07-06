@@ -33,3 +33,6 @@ function removeK(k){
   
 }
 
+console.log(removeK(2)) // 7
+console.log(removeK(3)) // 15
+console.log(removeK(10)) // 155

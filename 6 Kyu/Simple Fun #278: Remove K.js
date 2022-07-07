@@ -28,9 +28,7 @@
 // do not contain 2 elements that sum up to 6
 
 function removeK(k){
-  //coding and coding..
-  
-  
+  return k * (3*k + 1) / 2;
 }
 
 console.log(removeK(2)) // 7

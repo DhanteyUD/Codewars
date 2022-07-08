@@ -14,8 +14,37 @@ your starting point. Return false otherwise.*/
 of direction letters ('n', 's', 'e', or 'w' only). It will never give you 
 an empty array (that's not a walk, that's standing still!).*/
 
+// // Optional Solution
+// function isValidWalk(walk) {
+//   const north = walk.filter(item => { return item === "n" }).length;
+//   const south = walk.filter(item => { return item === "s" }).length;
+//   const east = walk.filter(item => { return item === "e" }).length;
+//   const west = walk.filter(item => { return item === "w" }).length;
+  
+//   return walk.length === 10 && north === south && east === west; 
+// }
+
 function isValidWalk(walk) {
-  //insert brilliant code here
+ if (walk.length !== 10) {
+    return false;
+  }
+  let x = 0;
+  let y = 0;
+  for (let i = 0; i < walk.length; i++) {
+    if (walk[i] === 'n') {
+      y++;
+    } else if (walk[i] === 's') {
+      y--;
+    } else if (walk[i] === 'e') {
+      x++;
+    } else if (walk[i] === 'w') {
+      x--;
+    }
+  }
+  if (x === 0 && y === 0) {
+    return true;
+  }
+  return false; 
 }
 
 console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'])); // true

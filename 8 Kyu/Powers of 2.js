@@ -8,7 +8,11 @@
 // n = 2  ==> [1, 2, 4]  # [2^0, 2^1, 2^2]
 
 function powersOfTwo(n){
-  return []
+    let result = [];
+    for (let i = 0; i <= n; i++) {
+        result.push(Math.pow(2, i));
+    }
+    return result;
 }
 
 console.log(powersOfTwo(0)) // [1]

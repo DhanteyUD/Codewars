@@ -30,18 +30,17 @@ Be sure your code doesn't time out.
 */
 
 function sumPairs(ints, s) {
-  let arr = [];
-  for (let i = 0; i < ints.length; i++) {
-    if (ints[i] + ints[i + 1] === s) {
-      arr.push(ints[i], ints[i + 1]);
-      ints.splice(0);
-      console.log(ints)
-      return arr;
-    } else {
-      console.log(ints)
+  if (ints.length < 2) return undefined;
+  let newSet = new Set();
+  newSet.add(ints[0]);
+  for (let i = 1; i < ints.length; i++) {
+    let newNum = s - ints[i];
+    if (newSet.has(newNum)) {
+      return [newNum, ints[i]];
     }
+    newSet.add(ints[i]);
   }
-  return arr.length > 0 ? arr[0] : undefined;
+  return undefined;
 }
 
 console.log(sumPairs([1, 4, 8, 7, 3, 15,], 8)) // [1, 7]

@@ -15,3 +15,27 @@ Examples
 "[(])"     =>  False
 "[({})](]" =>  False
 */
+
+function validBraces(braces){
+  var arr = braces.split('');
+  var stack = [];
+  var map = {
+    '(': ')',
+    '[': ']',
+    '{': '}'
+  };
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] in map) {
+      stack.push(arr[i]);
+    } else if (arr[i] === map[stack.pop()]) {
+      continue;
+    } else {
+      return false;
+    }
+  }
+  return stack.length === 0;
+}
+
+console.log(validBraces('()))')) // false
+console.log(validBraces('(){}[]')) // true
+console.log(validBraces('(({{[[]]}}))')) // true

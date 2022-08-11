@@ -14,3 +14,4 @@ cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flo
 function cakes(recipe, available) {
   
 }
+

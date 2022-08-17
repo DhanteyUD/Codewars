@@ -14,11 +14,12 @@
  */
 
 function bmi(weight, height) {
-  return weight / height ** 2 <= 18.5
+  const bmi = weight / (height * height);
+  return bmi <= 18.5
     ? 'Underweight'
-    : weight / height ** 2 <= 25.0
+    : bmi <= 25.0
     ? 'Normal'
-    : weight / height ** 2 <= 30.5
+    : bmi <= 30.5
     ? 'Overweight'
     : 'Obese';
 }

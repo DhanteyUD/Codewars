@@ -8,6 +8,8 @@
 
 Codewars is an educational community for computer programming. On the platform, software developers train on programming challenges (`Algorithms`) known as `kata` and ranked in `kyus`.
 
+> 8kyu is the easiest but descending, it becomes difficult.
+
 ## Ranking System
 
 ![CodeWars levels](https://i.imgur.com/Vm77XMv.png)

@@ -6,7 +6,9 @@
 
 ## What is Codewars?
 
-Codewars is an educational community for computer programming. On the platform, software developers train on programming challenges known as `kata` and ranked in `kyus`.
+Codewars is an educational community for computer programming. On the platform, software developers train on programming challenges (`Algorithms`) known as `kata` and ranked in `kyus`.
+
+> 8kyu is the easiest but descending, it becomes difficult.
 
 ## Ranking System
 

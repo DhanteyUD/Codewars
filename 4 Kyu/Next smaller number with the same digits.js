@@ -25,7 +25,9 @@
  * @format
  */
 
-function nextSmaller(n) {}
+function nextSmaller(n) {
+  
+}
 
 console.log(nextSmaller(21)); // 12
 console.log(nextSmaller(907)); // 790

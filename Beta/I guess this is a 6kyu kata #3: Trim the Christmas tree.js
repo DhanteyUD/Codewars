@@ -115,4 +115,6 @@
  * @format
  */
 
-function trimChristmasTree(tree) {}
+function trimChristmasTree(tree) {
+  
+}

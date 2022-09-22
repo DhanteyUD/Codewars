@@ -14,5 +14,12 @@ and each subsequent number is the sum of the previous two.
 */ 
 
 function nthFibo(n) {
-  // Return the n-th number in the Fibonacci Sequence
+  let fib = [0, 1];
+  for (let i = 0; i < n; i++) {
+    fib.push(fib[i] + fib[i + 1]);
+  }
+  return fib[n - 1];
 }
+
+console.log(nthFibo(1)); // 0
+console.log(nthFibo(2)); // 1

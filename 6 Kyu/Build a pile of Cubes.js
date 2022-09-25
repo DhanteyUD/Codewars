@@ -9,7 +9,7 @@
  * you find the number n of cubes you will have to build?
  *
  * The parameter of the function findNb (find_nb, find-nb, findNb, ...)
- * will be an integer m and you have to return the integer n such as n^3
+ * will be an integer m and you have to return bthe integer n such as n^3
  *  + (n-1)^3 + ... + 1^3 = m if such a n exists or -1 if there is no
  *  such n.
  *
@@ -21,7 +21,15 @@
  * @format
  */
 
- function findNb(m) {
-  // your code
-  return (-1);
+function findNb(m) {
+  let i = 1;
+  let count = 0;
+  while (m > 0) {
+    m -= Math.pow(i, 3);
+    i++;
+    count++;
+  }
+
+  return m === 0 ? count : -1;
+  return -1;
 }

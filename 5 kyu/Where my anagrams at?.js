@@ -22,6 +22,10 @@ anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 */ 
 
 function anagrams(word, words) {
+  var wordArr = word.split('').sort();
+  return words.filter(function(w) {
+    return w.split('').sort().join('') === wordArr.join('');
+  });
 }
 
 // Sample Tests Passed:

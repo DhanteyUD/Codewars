@@ -1,17 +1,17 @@
 /**
- * You walk in a maze. You need to reach the exit through many rooms. 
+ * You walk in a maze. You need to reach the exit through many rooms.
  * These rooms are in a straight line.
  *
  * You can only walk in the dark. Otherwise, you will be caught by the enemy.
  *
- * Your trouble is that some rooms have light bulbs. If the light bulb is 
+ * Your trouble is that some rooms have light bulbs. If the light bulb is
  * bright when you enter the room. You were caught by the enemy.
  *
- * Fortunately, the status of these bulbs (on/off) is auto-switched every 
+ * Fortunately, the status of these bulbs (on/off) is auto-switched every
  * minute. So you have a chance to go through the maze.
  *
  * Task
- * Let's us use a string map to represent these rooms， 
+ * Let's us use a string maze to represent these rooms，
  * like this: "xo oxox".
  *
  * "x" means there is a bulb in the room, and its initial status is off;
@@ -20,17 +20,17 @@
  *
  * " "(space) means a room without bulb, it's always dark.
  *
- * Your task is to determine if you can go through the maze. 
+ * Your task is to determine if you can go through the maze.
  * Return true if you can, false otherwise.
  *
  * Note
  * Your initial position is the most left, the exit position is the most right.
  *
- * Your moving speed is 1 minute per step. You can not stop before you 
+ * Your moving speed is 1 minute per step. You can not stop before you
  * start your moving until you reach the exit.
  *
  * Examples
- * For map = "xo oxox". The output should be true.
+ * For maze = "xo oxox". The output should be true.
  *
  * step 0 :  xo oxox
  *           ^ <--------You are here
@@ -48,7 +48,7 @@
  *                 ^ <--------You are here
  * step 7 :  ox xoxo
  *                  ^ <--------You've go through the maze :)
- * For map = "xo  oxox". The output should be false.
+ * For maze = "xo  oxox". The output should be false.
  *
  * step 0 :  xo  oxox
  *           ^ <--------You are here
@@ -65,7 +65,10 @@
  * @format
  */
 
- function bulbMaze(maze){
-  //coding and coding..
-  
+function bulbMaze(maze) {
+  for (let i = 0; i < maze.length; i++) {
+    if (maze[i] !== 'x' && maze[i] !== ' ') return false;
+    maze = maze.replace(/x|o/g, (v) => (v === 'x' ? 'o' : 'x'));
+  }
+  return true;
 }

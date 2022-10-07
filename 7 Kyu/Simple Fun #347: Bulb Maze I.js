@@ -65,10 +65,60 @@
  * @format
  */
 
+// Option 1
 function bulbMaze(maze) {
   for (let i = 0; i < maze.length; i++) {
     if (maze[i] !== 'x' && maze[i] !== ' ') return false;
     maze = maze.replace(/x|o/g, (v) => (v === 'x' ? 'o' : 'x'));
   }
+  return true;
+}
+
+// Option 2
+const bulbMaze = (map) => [].every.call(map, (v, i) => v !== 'ox'[i & 1]);
+
+// Option 3
+const bulbMaze = (map) =>
+  [...map]
+    .map((el, i) => el === ' ' || el === 'xo'[i & 1])
+    .every((e) => e === true);
+
+// Option 4
+function bulbMaze(map) {
+  const pos = ['x', 'o'];
+  const arr = [...map];
+  const result = arr.map((el, i) => el === ' ' || el === pos[i % 2]);
+  return result.every((el) => el === true);
+}
+
+// Option 5
+function bulbMaze(map) {
+  return /^([x ][o ])*[x ]?$/.test(map);
+}
+
+// Option 6
+const bulbMaze = (map) =>
+  ![...map].find((e, i) => (e === 'x' && i & 1) || (e === 'o' && i % 2 === 0));
+
+// Option 7
+function bulbMaze(map) {
+  //input is a string
+  //bulb turns on and off each minute ('x' for on, 'o' for off)
+  //blank space has no bulb
+  //each step takes a minute
+
+  //convert to array
+  let maze = map.split('');
+  //iterate thru string turning bulbs on and off each step
+  for (let i = 0; i < maze.length; i++) {
+    //check if we walk in a bright room (bulb is on) and get caught
+    if (maze[i] === 'o') return false;
+    maze = maze.map((room) => {
+      if (room === 'x') return 'o';
+      if (room === 'o') return 'x';
+      else return ' ';
+    });
+  }
+  //return true or false (true if can go through maze without getting caught)
   return true;
 }

@@ -9,6 +9,27 @@ Examples:
 4) n =  12, x = 7, y = 5 => false because  12 is neither divisible by 7 nor 5
 */
 
+// Option 1
 function isDivisible(n, x, y) {
   return n % x === 0 && n % y === 0;
+}
+
+// Option 2
+function isDivisible(n, x, y) {
+  return (n % x === 0 && n % y === 0) ? true : false;
+}
+
+// Option 3
+function isDivisible(n, x, y) {
+  return !(n%x||n%y)
+}
+
+// Option 4
+function isDivisible(n, ...dividers) {
+  return dividers.every(divider => n % divider == 0)
+}
+
+// Option 5
+function isDivisible(n, x, y) {
+  return (n % x) + (n % y) == 0;
 }

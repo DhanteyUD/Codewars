@@ -41,6 +41,7 @@ If you are given an array with multiple answers, return the lowest correct
 index.
 */ 
 
+// Optiion 1
 function findEvenIndex(arr){
   let left = 0;
   let right = arr.reduce((a, b) => a + b, 0);
@@ -52,6 +53,34 @@ function findEvenIndex(arr){
     left += arr[i];
   }
   return -1;
+}
+
+// Option 2
+const sum = (a, from, to) => a.slice(from, to).reduce((a, b) => a + b, 0)
+const findEvenIndex = a => a.findIndex((el, i) => sum(a, 0, i) === sum(a, i + 1));
+
+// Option 3
+function findEvenIndex(arr)
+{
+  function sum(arr){
+    return arr.reduce(function(a,b){return a+b;},0);
+  }
+
+  return arr.findIndex(function(el,i,arr){
+    return sum(arr.slice(0, i)) === sum(arr.slice(i+1,arr.length));
+  });
+}
+
+// Option 4
+function findEvenIndex(arr)
+{
+  return arr.findIndex((e,i,a)=> a.slice(0,i).reduce((p,c)=>p+c,0)==a.slice(i+1).reduce((p,c)=>p+c,0));
+}
+
+// Option 5
+function findEvenIndex(arr){
+  const sum = arr => arr.reduce((acc,cur)=> (acc+cur) ,0)
+  return arr.findIndex((val,idx) => sum(arr.slice(0,idx)) === sum(arr.slice(idx+1)))
 }
 
 console.log(findEvenIndex([1,2,3,4,3,2,1])) // 3

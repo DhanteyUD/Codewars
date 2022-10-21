@@ -16,6 +16,9 @@ The correct answer would be 17.
 Hint: Don't forget to check for bad values like null/undefined
 */ 
 
+// Option 1
 function countSheeps(arrayOfSheep) {
-  // TODO May the force be with you
+  const result = arrayOfSheep.filter((value) => value === true);
+  return result.length;
 }
+

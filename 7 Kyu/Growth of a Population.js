@@ -39,19 +39,60 @@
  */
 
 // Option 1
- function nbYear(p0, percent, aug, p, years = 0) {
+function nbYear(p0, percent, aug, p, years = 0) {
   return p0 >= p
-     ? years
-     : nbYear(
-         Math.floor(p0 + p0 * (percent / 100)) + aug,
-         percent,
-         aug,
-         p,
-         years + 1
-       );
+    ? years
+    : nbYear(
+        Math.floor(p0 + p0 * (percent / 100)) + aug,
+        percent,
+        aug,
+        p,
+        years + 1
+      );
 }
 
+// Option 2
+function nbYear(p0, percent, aug, p) {
+  for (var years = 0; p0 < p; years++) {
+    p0 = Math.floor(p0 + (p0 * percent) / 100 + aug);
+  }
+  return years;
+}
 
+// Option 3
+function nbYear(p0, percent, aug, p) {
+  var count = 0;
+  while (p0 < p) {
+    p0 = Math.floor((1 + percent / 100) * p0 + aug);
+    count++;
+  }
+  return count;
+}
+
+// Option 4
+function nbYear(p0, percent, aug, p) {
+  var i = 1;
+  var mult = 1 + percent / 100.0;
+  var prev = p0;
+  while (prev < p) {
+    var ne = Math.floor(prev * mult + aug);
+    prev = ne;
+    i++;
+  }
+  return i - 1;
+}
+
+// Option 4
+//Recursive function: exit condition p0 >= p
+function nbYear(p0, percent, aug, p) {
+  p0 = Math.floor(p0 * (1 + percent / 100) + aug);
+  if (p0 >= p) return 1;
+  return nbYear(p0, percent, aug, p) + 1;
+}
+
+// Option 5
+nbYear = f = (a, b, c, d, r = 0) =>
+  d / a > 1 ? f(a + ~~((a * b) / 1e2) + c, b, c, d, ++r) : r;
 
 console.log(nbYear(1500, 5, 100, 5000)); // 15
 console.log(nbYear(1500000, 2.5, 10000, 2000000)); // 10

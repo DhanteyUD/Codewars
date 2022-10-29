@@ -15,6 +15,7 @@
  * @format
  */
 
+// Option 1
 function getDivisorsCnt(n) {
   let count = 0;
   for (let i = 0; i <= n; i++) {
@@ -25,6 +26,17 @@ function getDivisorsCnt(n) {
   }
   return count;
 }
+
+// Option 2
+function getDivisorsCnt(n) {
+  let count = 0;
+  for (let i = 0; i <= n; i++) {
+    n % i === 0 ? count++ : count
+  }
+  return count;
+}
+
+
 
 console.log(getDivisorsCnt(1)); // 1
 console.log(getDivisorsCnt(10)); // 4

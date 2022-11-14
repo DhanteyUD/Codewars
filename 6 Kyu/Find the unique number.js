@@ -15,6 +15,60 @@ Find the unique string
 Find The Unique
 */
 
+// Option 1
 function findUniq(arr) {
-  // do magic
+  return +arr.filter(value => {
+    return arr.indexOf(value) == arr.lastIndexOf(value);
+  });
+}
+
+// Option 2
+function findUniq(arr) {
+  arr.sort((a,b)=>a-b);
+  return arr[0]==arr[1]?arr.pop():arr[0]
+}
+
+// Option 3
+function findUniq(arr) {
+  return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+}
+
+// Option 4
+function findUniq(arr) {
+  let [a,b,c] = arr.slice(0,3);
+  if( a != b && a!=c ) return a;
+  for( let x of arr ) if( x!=a ) return x
+}
+
+// Option 5
+function findUniq(arr) {
+  return arr.filter(function(elem){
+   return arr.indexOf(elem)===arr.lastIndexOf(elem)
+  })[0] 
+}
+
+// Option 6
+function findUniq(arr) {
+  let uniq = {},
+      result;
+  arr.forEach(function(item) {
+    uniq[item] = uniq[item] + 1 || 1;
+  });
+  Object.keys(uniq).forEach(function(key) {
+    if (uniq[key] == 1) {
+      result = key;
+    }
+  });
+  
+  return parseFloat(result);
+}
+
+// Option 7
+function findUniq(arr) {
+  arr = arr.sort()
+  if (arr[0] === arr[1]){
+    return arr[arr.length -1]
+  } else {
+    return arr[0]
+  } 
 }

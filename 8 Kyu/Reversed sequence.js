@@ -5,6 +5,8 @@ Example : n=5 --> [5,4,3,2,1]
 */ 
 
 const reverseSeq = n => {
-  return [];
+  return Array(n)
+    .fill(0)
+    .map((e, i) => n - i);
 };
 

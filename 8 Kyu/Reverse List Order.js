@@ -8,5 +8,5 @@ Examples (Input -> Output)
 */ 
 
 function reverseList(list) {
-
+  return list.reverse();
 }

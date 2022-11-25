@@ -47,7 +47,7 @@ This NFA accepts 0111 and does not accept 001.
 States for 0111:
 q0 -> q0 -> q2 -> q2 -> q1 (from acceptStates -> accepted)
 (Note there is path q0 -> q0 -> q2 -> q2 -> q2 that ended in not accepted state, 
-  but we need least one path that endind in accept state)
+  but we need least one path that ending in accept state)
 
 States for 001:
 q0 -> q0 -> q0 -> q2 (not from acceptStates -> not accepted)

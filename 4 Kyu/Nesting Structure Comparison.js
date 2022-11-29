@@ -23,9 +23,17 @@ defined that returns true if its argument is an array, false otherwise.
 */ 
 
 Array.prototype.sameStructureAs = function (other) {
-  // Return 'true' if and only if 'other' has the same
-  // nesting structure as 'this'.
+  if (!Array.isArray(other) || this.length != other.length) return false;
 
-  // Note: You are given a function isArray(o) that returns
-  // whether its argument is an array.
+  for (var i = 0; i < this.length; ++i) {
+    if (Array.isArray(this[i])) {
+      if (!this[i].sameStructureAs(other[i])) {
+        return false;
+      }
+    } else if (Array.isArray(other[i])) {
+      return false;
+    }
+  }
+
+  return true;
 };

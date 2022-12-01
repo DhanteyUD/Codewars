@@ -50,3 +50,15 @@ Array.prototype.sameStructureAs = function (other) {
       })
     : false;
 };
+
+// Option 3
+Array.prototype.sameStructureAs = function (other) {
+  return (
+    this.length == other.length &&
+    this.every(
+      (x, i) =>
+        isArray(x) == isArray(other[i]) &&
+        (!isArray(x) || x.sameStructureAs(other[i]))
+    )
+  );
+};

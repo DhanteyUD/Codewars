@@ -10,6 +10,8 @@ Codewars is an educational community for computer programming. On the platform, 
 
 > 8kyu is the easiest but descending, it becomes difficult.
 
+> **Beta** is not classified easy or difficult, but they tend to lean more towards being more difficult and complex 
+
 ## Ranking System
 
 ![CodeWars levels](https://i.imgur.com/Vm77XMv.png)

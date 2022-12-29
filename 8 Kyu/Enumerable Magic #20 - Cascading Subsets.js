@@ -15,6 +15,7 @@
  * @format
  */
 
+// Option 1
 function eachCons(array, n) {
   const res = [];
   for (let i = 0; i < array.length; i++) {
@@ -23,5 +24,33 @@ function eachCons(array, n) {
   }
   return res;
 }
+
+// Option 2
+function eachCons(array, n) {
+  let cascadingSubset = [];
+  for (i = 0; i <= array.length - n; i++) {
+    cascadingSubset.push(array.slice(i, i + n));
+  }
+  return cascadingSubset;
+}
+
+// Option 3
+const eachCons = (l, n) =>
+  [...Array(Math.max(0, l.length - n + 1)).keys()].map((i) =>
+    l.slice(i, i + n)
+  );
+
+// Option 4
+function eachCons(array, n, result = []) {
+  if (array.length < n) return result;
+
+  result = [...result, array.slice(0, n)];
+  const [, ...tail] = array;
+  return eachCons(tail, n, result);
+}
+
+// Option 5
+const eachCons = (arr, n) =>
+  arr.map((_, idx) => arr.slice(idx, idx + n)).filter((i) => i.length === n);
 
 console.log(eachCons([1, 2, 3, 4], 3));

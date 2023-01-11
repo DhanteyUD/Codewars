@@ -15,7 +15,8 @@ Float parameter "window" must be less than h.
 If all three conditions above are fulfilled, return a positive integer, otherwise return -1.
 
 Note:
-The ball can only be seen if the height of the rebounding ball is strictly greater than the window parameter.
+The ball can only be seen if the height of the rebounding ball is 
+strictly greater than the window parameter.
 
 Examples:
 - h = 3, bounce = 0.66, window = 1.5, result is 3
@@ -27,5 +28,8 @@ Examples:
 */ 
 
 function bouncingBall(h,  bounce,  window) {
-  // your code here
+  var rebounds = -1;
+  if (bounce > 0 && bounce < 1)
+    while (h > window) (rebounds += 2), (h *= bounce);
+  return rebounds;
 }

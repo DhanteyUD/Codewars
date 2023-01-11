@@ -10,5 +10,6 @@ Examples:
 */ 
 
 function opposite(number) {
-  //your code here
+  const result = number * -1;
+  return result;
 }

@@ -16,4 +16,3 @@ For calculating the average point you may add your point to the given array!
 function betterThanAverage(classPoints, yourPoints) {
     // Your code here
 }
-  
